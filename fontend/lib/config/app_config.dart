@@ -4,7 +4,7 @@
 class AppConfig {
   static const String baseUrl = String.fromEnvironment(
     'API_BASE_URL',
-    defaultValue: 'https://localhost:44311/api',
+    defaultValue: 'http://localhost:44311/api',
   );
 
   static const Duration requestTimeout = Duration(seconds: 12);

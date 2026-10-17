@@ -85,26 +85,59 @@ class StudentHeader extends StatelessWidget {
                 ),
 
               // Student badge
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                decoration: BoxDecoration(
-                  color: AppColors.primaryLight,
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: const [
-                    Icon(Icons.school_outlined, size: 14, color: AppColors.primary),
-                    SizedBox(width: 6),
-                    Text(
-                      'Không gian Sinh viên',
-                      style: TextStyle(
-                        fontSize: 11,
-                        fontWeight: FontWeight.w600,
-                        color: AppColors.primary,
-                      ),
+              // Student badge / Role Switcher
+              InkWell(
+                onTap: () {
+                  // TODO: Thêm logic chuyển sang Không gian Giảng viên ở đây
+                  // Ví dụ hiển thị một Dialog, hoặc điều hướng sang trang Quản lý của giảng viên:
+                  // Navigator.pushNamed(context, '/lecturer-space');
+                  
+                  // Hoặc hiển thị thông báo tạm thời để test:
+                  showDialog(
+                    context: context,
+                    builder: (context) => AlertDialog(
+                      title: const Text('Chuyển không gian'),
+                      content: const Text('Bạn muốn chuyển sang Không gian Giảng viên?'),
+                      actions: [
+                        TextButton(
+                          onPressed: () => Navigator.pop(context),
+                          child: const Text('Hủy'),
+                        ),
+                        ElevatedButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                            // Thực hiện lệnh chuyển màn hình sang Không gian Giảng viên tại đây
+                          },
+                          child: const Text('Xác nhận'),
+                        ),
+                      ],
                     ),
-                  ],
+                  );
+                },
+                borderRadius: BorderRadius.circular(20),
+                child: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                  decoration: BoxDecoration(
+                    color: AppColors.primaryLight,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: const [
+                      Icon(Icons.school_outlined, size: 14, color: AppColors.primary),
+                      SizedBox(width: 6),
+                      Text(
+                        'Không gian Sinh viên',
+                        style: TextStyle(
+                          fontSize: 11,
+                          fontWeight: FontWeight.w600,
+                          color: AppColors.primary,
+                        ),
+                      ),
+                      SizedBox(width: 4),
+                      Icon(Icons.arrow_drop_down, size: 16, color: AppColors.primary), // Thêm icon mũi tên nhỏ để người dùng biết chỗ này bấm được
+                    ],
+                  ),
                 ),
               ),
             ],
