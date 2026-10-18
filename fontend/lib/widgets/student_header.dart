@@ -88,7 +88,6 @@ class StudentHeader extends StatelessWidget {
               // Student badge / Role Switcher
               InkWell(
                 onTap: () {
-                  // TODO: Thêm logic chuyển sang Không gian Giảng viên ở đây
                   // Ví dụ hiển thị một Dialog, hoặc điều hướng sang trang Quản lý của giảng viên:
                   // Navigator.pushNamed(context, '/lecturer-space');
                   
